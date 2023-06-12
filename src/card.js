@@ -46,9 +46,8 @@ const Card = (props) => {
                 {props.value.statusPlan}
                 </li>
             </ul>
-
             <div className="d-grid">
-              <a href="" className="btn btn-primary text-uppercase">Button</a>
+              <a href="javascript(void)" className="btn btn-primary text-uppercase">Button</a>
             </div>
           </div>
         </div>
