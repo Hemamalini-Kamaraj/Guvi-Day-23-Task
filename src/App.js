@@ -1,40 +1,32 @@
 import React from 'react'
 import Card from './Components/Card'
-import Data from './Data/Products'
+import { useState } from 'react'
+import productData from './Data/Products'
+import Cart from './Components/Cart'
+import Navbar from './Components/Navbar'
 
 function App() {
+
+  const [cartItems, setCartItems] = useState([]);
+
+  const addItem = (item) => {
+    const getData = productData.filter((inp) => inp.id === item);
+    setCartItems([...cartItems, ...getData]);
+  };
+
+  const removeItem = (item) => {
+    console.log("remove item", item);
+    const filteredData = cartItems.filter((obj) => obj.id !== item);
+    console.log(filteredData);
+    setCartItems([...filteredData]);
+  };
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <div className="container px-4 px-lg-5">
-                <a className="navbar-brand" href="#!">Start Bootstrap</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li className="nav-item"><a className="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li className="nav-item"><a className="nav-link" href="#!">About</a></li>
-                        <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#!">All Products</a></li>
-                                <li><hr className="dropdown-divider" /></li>
-                                <li><a className="dropdown-item" href="#!">Popular Items</a></li>
-                                <li><a className="dropdown-item" href="#!">New Arrivals</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form className="d-flex">
-                        <button className="btn btn-outline-dark" type="submit">
-                            <i className="bi-cart-fill me-1"></i>
-                            Cart
-                            <span className="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
+        {/* <!-- Nav Bar--> */}
+        <Navbar cartItems={cartItems}/>
         {/* <!-- Header--> */}
-        <header className="bg-dark py-5">
+        <header className="bg-dark py-1">
             <div className="container px-4 px-lg-5 my-5">
                 <div className="text-center text-white">
                     <h1 className="display-4 fw-bolder">Shop in style</h1>
@@ -42,18 +34,16 @@ function App() {
                 </div>
             </div>
         </header>
+        {/* <!-- Cart Items--> */}
+        <Cart cartItems={cartItems} removeItem={removeItem} />
         {/* <!-- Section--> */}
         <section className="py-5">
-          <Card Data={Data}/>
+          <Card productdata={productData} addItem={addItem} cartItems={cartItems}/>
         </section>
-        {/* <!-- Footer-->
+        {/* <!-- Footer--> */}
         <footer className="py-5 bg-dark">
             <div className="container"><p className="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
         </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script> */}
     </>
   )
 }
