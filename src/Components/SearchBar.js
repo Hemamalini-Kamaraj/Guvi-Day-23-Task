@@ -1,5 +1,4 @@
-import { Badge, Button, IconButton, TextField } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import { Badge, IconButton } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import EmailIcon from "@mui/icons-material/Email";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
