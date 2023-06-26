@@ -1,14 +1,12 @@
-import React, { useContext } from 'react'
-import { UserDetailContext } from '../Context/UserDetailContext'
+import React from 'react'
 import Table from './Table'
 
 function ViewUser() {
-    return(
-        <div className='tableDiv'>
-            <Table/>
-        </div>
-        
-    );
+  return (
+    <div className='tableDiv'>
+        <Table/>
+    </div>
+  )
 }
 
 export default ViewUser

@@ -1,21 +1,27 @@
-import { useContext, useEffect } from "react";
-import { UserDetailContext } from "../Context/UserDetailContext";
-import UserDetails from "../Data/UserDetails";
+import { useEffect, useState } from 'react';
+import Data from '../Data/userData';
+import axios from 'axios'
 function Table(){
 
+const [userData,setUserData] = useState(Data)
+
+useEffect(()=>{
+  axios
+    .get('http://localhost:3001/users')
+    .then(response=>setUserData(response.data))
+
+})
 // get table column
  const column = Object.keys(userData[0]);
  // get table heading data
  const ThData =()=>{
     
      return column.map((data)=>{
-        // console.log(data.ID)
-         return <th key={data}>{data}</th>
+         return <th key={data}>{data.toUpperCase()}</th>
      })
  }
 // get table row data
 const tdData =() =>{
-   
      return userData.map((data,index)=>{
        return(
            <tr key={index}>

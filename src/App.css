@@ -3,6 +3,29 @@
   margin-left: 300px;
 }
 
+.dashboardHeading{
+  margin-top: 250px;
+  margin-left: 500px;
+}
+
+.tableDiv {
+  width: 100%;
+}
+
+.createUser {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
+.deleteUser {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+.editUser {
+  margin-top: 50px;
+  margin-left: 50px;
+}
+
 .App {
     text-align: center;
   }

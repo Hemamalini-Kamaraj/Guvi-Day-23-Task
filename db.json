@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "Name": "Hemamalini",
+      "Email": "123@gmail.com",
+      "Age": "26",
+      "City": "Coimbatore"
+    },
+    {
+      "id": 2,
+      "Name": "Sathish",
+      "Email": "321@gmail.com",
+      "Age": 33,
+      "City": "Vellakulam"
+    },
+    {
+      "id": 3,
+      "Name": "Aaraa Sri",
+      "Email": "567@gmail.com",
+      "Age": 1,
+      "City": "Vellakulam"
+    }
+  ]
+}
