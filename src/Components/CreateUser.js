@@ -1,41 +1,38 @@
-import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import React, { useState, useRef, useEffect } from 'react';
+import Data from '../Data/userData';
 
 function CreateUser() {
 
     const [userData,setUserData] = useState('')
-    const[userName,setUserName] = useState('')
-    const[userEmail,setUserEmail] = useState('')
-    const[userAge,setUserAge] = useState('')
-    const[userCity,setUserCity] = useState('')
+    const [userName,setUserName] = useState('')
+    const [userEmail,setUserEmail] = useState('')
+    const [userAge,setUserAge] = useState('')
+    const [userCity,setUserCity] = useState('')
 
     const userNameRef = useRef(null)
 
     useEffect(()=>{
-        axios
-          .get('http://localhost:3001/users')
-          .then(response=>setUserData(response.data))
-      
-      })
+        setUserData(Data)
+    },[])
 
     let addUser = (event) => {
         event.preventDefault();
 
         let userObject = {
-            id:userData.length+1,
+            ID:userData.length+1,
             Name:userName,
             Email:userEmail,
-            Age:userAge
+            Age:userAge,
+            City:userCity
         }
 
-        axios
-            .post('http://localhost:3001/users/',userObject);
-
-            alert('User Added.. Please check View User to view')
-            setUserName('');
-            setUserEmail('');
-            setUserAge('');
-            userNameRef.current.focus();
+        let index = userData.length
+        userData[index]=userObject;
+        alert('User details Created.. Please click View User to view!')
+        setUserName('');
+        setUserEmail('');
+        setUserAge('');
+        userNameRef.current.focus();
     }
 
     let handleNameChange = (event) => {

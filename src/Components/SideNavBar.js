@@ -5,6 +5,7 @@ import CreateUser from './CreateUser';
 import EditUser from './EditUser';
 import DeleteUser from './DeleteUser';
 import Home from './Home';
+import Data from '../Data/userData';
 
 function SideNavBar() {
   return (

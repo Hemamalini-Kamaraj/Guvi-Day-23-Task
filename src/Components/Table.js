@@ -3,16 +3,16 @@ import Data from '../Data/userData';
 import axios from 'axios'
 function Table(){
 
-const [userData,setUserData] = useState(Data)
+// const [userData,setUserData] = useState(Data)
 
-useEffect(()=>{
-  axios
-    .get('http://localhost:3001/users')
-    .then(response=>setUserData(response.data))
+// useEffect(()=>{
+//   axios
+//     .get('http://localhost:3001/users')
+//     .then(response=>setUserData(response.data))
 
-})
+// })
 // get table column
- const column = Object.keys(userData[0]);
+ const column = Object.keys(Data[0]);
  // get table heading data
  const ThData =()=>{
     
@@ -22,7 +22,7 @@ useEffect(()=>{
  }
 // get table row data
 const tdData =() =>{
-     return userData.map((data,index)=>{
+     return Data.map((data,index)=>{
        return(
            <tr key={index}>
                 {
