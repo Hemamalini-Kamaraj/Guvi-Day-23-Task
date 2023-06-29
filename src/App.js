@@ -4,8 +4,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import SideNavBar from './Components/SideNavBar';
 
 function App() {
-
-  
   
   return (
    <div>

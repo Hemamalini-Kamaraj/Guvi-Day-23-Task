@@ -11,100 +11,51 @@ function Delete({selectedOption}) {
     const [userAge,setUserAge] = useState('');
     const [userCity,setUserCity] = useState('');
 
-    // useEffect(()=>{
-    //     setUserData(Data)
-    // },[])
-
     useEffect(() => {
-        const userObject = Data.find(user => user.ID == selectedOption);
+        const userObject = userData.find(user => user.ID == selectedOption);
         if (userObject) {
             setUserName(userObject.Name);
             setUserEmail(userObject.Email);
             setUserAge(userObject.Age);
             setUserCity(userObject.City)
         }
-      }, [selectedOption, Data]);
+      }, [selectedOption, userData]);
 
-    // const handleUpdateClick = (event) => {
+            let removeUser = (event) => {
+                event.preventDefault();
 
-    //     event.preventDefault();
-
-    //     let changeUsers = [...userData];
-
-    //     for (var index = 0; index < changeUsers.length; index++){
-    //         if (changeUsers[index].ID == selectedOption) {
-    //             userData[index] = changeUsers[index+1];
-    //         }
-    //     }
-
-        const removeUser = (event) => {
-            event.preventDefault();
-            let changeUsers = [...userData];
-
-            for (var index = 0; index < changeUsers.length; index++){
-                if (changeUsers[index].ID == selectedOption) {
-                    // userData[index] = changeUsers[index+1];
-                }
+                let changeUsers = [...userData];
+                
+                for (var index = 0; index < changeUsers.length; index++){
+                            if (changeUsers[index].ID == selectedOption) {
+                                break;
+                            }
+                        }
+                userData.splice(index,1)
+                alert('User details Deleted.. Please click View User to view!');
             }
-
-            // setUserData([
-            //     ...userData.slice(0,index),
-            //     // ...userData.slice(index,changeUsers.length)
-            // ])
-            // console.log(userData)
-
-            // setUserData(values=> {
-            //     console.log(values)
-            //     values.filter((_,i) => i!==index)
-            // })
-            // console.log(userData)
-
-            // setUserData({Data: Data.filter(item=>{
-            //     if(item.ID!==selectedOption) {
-            //         return item;
-            //     }
-            // })})
-            // console.log(userData)
-            // setUserData.filter(user=>{
-            //     if(user.ID != selectedOption) {
-            //         // useEffect(()=>{
-            //             return user
-            //         // })
-            //     }
-            // })
-            setUserData(values=>{
-                values.filter(value=>{
-                    if(value.ID!== selectedOption) {
-                        return value;
-                    }
-                })
-            })
-            alert('User details Deleted.. Please click View User to view!')
-        }
-        
-    // }
 
     return (
         <div>
           <form>
                 <div className='col-sm-6'>
                     <label form='userName'>Enter Name</label>
-                    <input id='userName' type='text' value={userName}></input> 
+                    <input id='userName' type='text' value={userName} onChange={()=>{}}></input> 
                 </div><br/>
                 <div className='col-sm-6'>
                     <label form='userEmail'>Enter Email</label>
-                    <input id='userEmail' type='text' value={userEmail}></input>
+                    <input id='userEmail' type='text' value={userEmail} onChange={()=>{}}></input>
                 </div><br/>
                 <div className='col-sm-6'>
                     <label form='userAge'>Enter Age</label>
-                    <input id='userAge' type='text' value={userAge}></input>
+                    <input id='userAge' type='text' value={userAge} onChange={()=>{}}></input>
                 </div><br/>
                 <div className='col-sm-6'>
                     <label form='userCity'>Enter City</label>
-                    <input id='userCity' type='text' value={userCity}></input>
+                    <input id='userCity' type='text' value={userCity} onChange={()=>{}}></input>
                 </div><br/>
                 <div className='col-sm-6'>
-                    <button type='submit' onClick={removeUser}>Delete user</button>
+                    <button type='submit' id={selectedOption} onClick={removeUser}>Delete user</button>
                 </div>
         </form>
     </div>

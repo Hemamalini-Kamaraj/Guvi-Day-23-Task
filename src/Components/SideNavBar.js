@@ -5,7 +5,7 @@ import CreateUser from './CreateUser';
 import EditUser from './EditUser';
 import DeleteUser from './DeleteUser';
 import Home from './Home';
-import Data from '../Data/userData';
+import EditNotebyId from './EditNotebyId';
 
 function SideNavBar() {
   return (
@@ -64,6 +64,7 @@ function SideNavBar() {
             <Route path='/create-user' element={<CreateUser/>}/>
             <Route path='/edit-user' element={<EditUser/>}/>
             <Route path='/delete-user' element={<DeleteUser/>}/>
+            <Route path='/edit-user/:id' element={<EditNotebyId/>}/>
         </Routes>
     </Router>
   )

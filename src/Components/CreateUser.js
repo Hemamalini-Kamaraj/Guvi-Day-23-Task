@@ -3,17 +3,13 @@ import Data from '../Data/userData';
 
 function CreateUser() {
 
-    const [userData,setUserData] = useState('')
+    const [userData,setUserData] = useState(Data)
     const [userName,setUserName] = useState('')
     const [userEmail,setUserEmail] = useState('')
     const [userAge,setUserAge] = useState('')
     const [userCity,setUserCity] = useState('')
 
     const userNameRef = useRef(null)
-
-    useEffect(()=>{
-        setUserData(Data)
-    },[])
 
     let addUser = (event) => {
         event.preventDefault();

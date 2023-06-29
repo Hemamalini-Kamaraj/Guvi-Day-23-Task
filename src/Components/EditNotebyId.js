@@ -1,7 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import Data from '../Data/userData';
+import  { useState, useRef, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
-function UpdateForm({selectedOption}) {
+function EditNotebyId() {
+
+    const id = useParams().id;
 
     const [userData,setUserData] = useState(Data);
     const [userName,setUserName] = useState('');
@@ -11,19 +15,15 @@ function UpdateForm({selectedOption}) {
 
     const userNameRef = useRef(null)
 
-    // useEffect(()=>{
-    //     setUserData(Data)
-    // },[])
-
     useEffect(() => {
-        const userObject = userData.find(user => user.ID == selectedOption);
+        const userObject = userData.find(user => user.ID == id);
         if (userObject) {
             setUserName(userObject.Name);
             setUserEmail(userObject.Email);
             setUserAge(userObject.Age);
             setUserCity(userObject.City)
         }
-      }, [selectedOption, userData]);
+      }, [id, userData]);
 
     let handleNameChange = (event) => {
         setUserName(event.target.value);
@@ -46,7 +46,7 @@ function UpdateForm({selectedOption}) {
             event.preventDefault();
     
             let userObject = {
-                ID:Number(selectedOption),
+                ID:Number(id),
                 Name:userName,
                 Email:userEmail,
                 Age:userAge,
@@ -56,7 +56,7 @@ function UpdateForm({selectedOption}) {
             let changeUsers = [...userData];
 
             for (var index = 0; index < changeUsers.length; index++){
-                if (changeUsers[index].ID == selectedOption) {
+                if (changeUsers[index].ID == id) {
                     break;
                 }
             }
@@ -70,12 +70,13 @@ function UpdateForm({selectedOption}) {
             userNameRef.current.focus();   
     }
 
-    return (
-        <div>
+  return (
+    <div className='editUser'>
+        <h1>Edit User</h1>
           <form>
                 <div className='col-sm-6'>
                     <label form='userName'>Enter Name</label>
-                    <input id='userName' ref={userNameRef} type='text' value={userName} onChange={handleNameChange}></input> 
+                    <input id='userName' ref={userNameRef} type='text' value={userName} onChange={(handleNameChange)}></input> 
                 </div><br/>
                 <div className='col-sm-6'>
                     <label form='userEmail'>Enter Email</label>
@@ -94,43 +95,7 @@ function UpdateForm({selectedOption}) {
                 </div>
         </form>
     </div>
-    )
-}
-
-function EditUser() {
-
-    const [options,setOptions] = useState(Data);
-    const [selectedOption, setSelectedOption] = useState('');
-
-    useEffect(()=>{
-        setOptions(Data)
-    })
-
-    const selectOptionRef = useRef(null)
-
-    let selectHandler = (event) => {
-        setSelectedOption(event.target.value);
-    }
-
-  return (
-    <div className='editUser'>
-        <h1>Edit Users</h1>
-
-            <label>
-                Select an ID to Edit &nbsp;&nbsp;
-                <select ref={selectOptionRef} onChange={selectHandler} value={selectedOption}>
-                    <option value=''>Select an Option</option>
-                    {
-                        options.map(option => (
-                            <option key={option.ID}>{option.ID}</option>
-                        ))
-                    }
-                </select>  
-            </label>
-            <br /><br />
-            {selectedOption && <UpdateForm selectedOption={selectedOption} />}
-      </div>
   )
 }
 
-export default EditUser
+export default EditNotebyId
