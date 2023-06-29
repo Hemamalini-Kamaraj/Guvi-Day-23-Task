@@ -23,7 +23,7 @@ function UpdateForm({selectedOption}) {
             setUserAge(userObject.Age);
             setUserCity(userObject.City)
         }
-      }, [selectedOption, Data]);
+      }, [selectedOption]);
 
     let handleNameChange = (event) => {
         setUserName(event.target.value);
@@ -105,7 +105,7 @@ function EditUser() {
 
     useEffect(()=>{
         setOptions(Data)
-    })
+    },[])
 
     const selectOptionRef = useRef(null)
 

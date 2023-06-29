@@ -23,7 +23,7 @@ function Delete({selectedOption}) {
             setUserAge(userObject.Age);
             setUserCity(userObject.City)
         }
-      }, [selectedOption, Data]);
+      }, [selectedOption]);
 
             let removeUser = (event) => {
                 event.preventDefault();
@@ -77,7 +77,7 @@ function DeleteUser() {
 
     useEffect(() => {
         setOptions(Data)
-    });
+    },[]);
 
     let selectHandler = (event) => {
         setSelectedOption(event.target.value);

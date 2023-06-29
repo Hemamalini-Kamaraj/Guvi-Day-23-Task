@@ -27,7 +27,7 @@ function EditNotebyId() {
             setUserAge(userObject.Age);
             setUserCity(userObject.City)
         }
-      }, [id, Data]);
+      }, [id]);
 
     let handleNameChange = (event) => {
         setUserName(event.target.value);
