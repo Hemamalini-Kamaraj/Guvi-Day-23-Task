@@ -5,21 +5,25 @@ import Data from '../Data/userData';
 
 function Delete({selectedOption}) {
 
-    const [userData,setUserData] = useState(Data);
+    const [userData,setUserData] = useState('Data');
     const [userName,setUserName] = useState('');
     const [userEmail,setUserEmail] = useState('');
     const [userAge,setUserAge] = useState('');
     const [userCity,setUserCity] = useState('');
 
     useEffect(() => {
-        const userObject = userData.find(user => user.ID == selectedOption);
+        setUserData(Data)
+    },[])
+
+    useEffect(() => {
+        const userObject = Data.find(user => user.ID == selectedOption);
         if (userObject) {
             setUserName(userObject.Name);
             setUserEmail(userObject.Email);
             setUserAge(userObject.Age);
             setUserCity(userObject.City)
         }
-      }, [selectedOption, userData]);
+      }, [selectedOption, Data]);
 
             let removeUser = (event) => {
                 event.preventDefault();
@@ -33,6 +37,10 @@ function Delete({selectedOption}) {
                         }
                 userData.splice(index,1)
                 alert('User details Deleted.. Please click View User to view!');
+                setUserName('');
+                setUserEmail('');
+                setUserAge('');
+                setUserCity('');
             }
 
     return (

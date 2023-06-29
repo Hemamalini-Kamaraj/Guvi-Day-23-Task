@@ -1,15 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Data from '../Data/userData';
 
 function CreateUser() {
 
-    const [userData,setUserData] = useState(Data)
+    const [userData,setUserData] = useState('')
     const [userName,setUserName] = useState('')
     const [userEmail,setUserEmail] = useState('')
     const [userAge,setUserAge] = useState('')
     const [userCity,setUserCity] = useState('')
 
     const userNameRef = useRef(null)
+
+    useEffect(() => {
+        setUserData(Data)
+    },[])
 
     let addUser = (event) => {
         event.preventDefault();

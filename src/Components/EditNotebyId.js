@@ -7,13 +7,17 @@ function EditNotebyId() {
 
     const id = useParams().id;
 
-    const [userData,setUserData] = useState(Data);
+    const [userData,setUserData] = useState('');
     const [userName,setUserName] = useState('');
     const [userEmail,setUserEmail] = useState('');
     const [userAge,setUserAge] = useState('');
     const [userCity,setUserCity] = useState('');
 
     const userNameRef = useRef(null)
+
+    useEffect(() => {
+        setUserData(Data)
+    },[])
 
     useEffect(() => {
         const userObject = userData.find(user => user.ID == id);

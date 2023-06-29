@@ -3,7 +3,7 @@ import Data from '../Data/userData';
 
 function UpdateForm({selectedOption}) {
 
-    const [userData,setUserData] = useState(Data);
+    const [userData,setUserData] = useState('');
     const [userName,setUserName] = useState('');
     const [userEmail,setUserEmail] = useState('');
     const [userAge,setUserAge] = useState('');
@@ -11,19 +11,19 @@ function UpdateForm({selectedOption}) {
 
     const userNameRef = useRef(null)
 
-    // useEffect(()=>{
-    //     setUserData(Data)
-    // },[])
+    useEffect(()=>{
+        setUserData(Data)
+    },[])
 
     useEffect(() => {
-        const userObject = userData.find(user => user.ID == selectedOption);
+        const userObject = Data.find(user => user.ID == selectedOption);
         if (userObject) {
             setUserName(userObject.Name);
             setUserEmail(userObject.Email);
             setUserAge(userObject.Age);
             setUserCity(userObject.City)
         }
-      }, [selectedOption, userData]);
+      }, [selectedOption, Data]);
 
     let handleNameChange = (event) => {
         setUserName(event.target.value);
@@ -67,6 +67,7 @@ function UpdateForm({selectedOption}) {
             setUserName('');
             setUserEmail('');
             setUserAge('');
+            setUserCity('');
             userNameRef.current.focus();   
     }
 

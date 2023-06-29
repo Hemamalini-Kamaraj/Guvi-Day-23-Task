@@ -1,14 +1,6 @@
 import Data from '../Data/userData';
 function Table(){
 
-// const [userData,setUserData] = useState(Data)
-
-// useEffect(()=>{
-//   axios
-//     .get('http://localhost:3001/users')
-//     .then(response=>setUserData(response.data))
-
-// })
 // get table column
  const column = Object.keys(Data[0]);
  // get table heading data
