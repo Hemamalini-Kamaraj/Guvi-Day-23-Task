@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
 import Data from '../Data/userData';
-import axios from 'axios'
 function Table(){
 
 // const [userData,setUserData] = useState(Data)
