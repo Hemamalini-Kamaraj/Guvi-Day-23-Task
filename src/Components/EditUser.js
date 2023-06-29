@@ -16,7 +16,7 @@ function UpdateForm({selectedOption}) {
     },[])
 
     useEffect(() => {
-        const userObject = Data.find(user => user.ID == selectedOption);
+        const userObject = Data.find(user => user.ID === Number(selectedOption));
         if (userObject) {
             setUserName(userObject.Name);
             setUserEmail(userObject.Email);
@@ -56,7 +56,7 @@ function UpdateForm({selectedOption}) {
             let changeUsers = [...userData];
 
             for (var index = 0; index < changeUsers.length; index++){
-                if (changeUsers[index].ID == selectedOption) {
+                if (changeUsers[index].ID === Number(selectedOption)) {
                     break;
                 }
             }

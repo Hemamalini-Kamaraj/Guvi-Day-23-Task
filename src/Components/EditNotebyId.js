@@ -20,14 +20,14 @@ function EditNotebyId() {
     },[])
 
     useEffect(() => {
-        const userObject = userData.find(user => user.ID == id);
+        const userObject = Data.find(user => user.ID === Number(id));
         if (userObject) {
             setUserName(userObject.Name);
             setUserEmail(userObject.Email);
             setUserAge(userObject.Age);
             setUserCity(userObject.City)
         }
-      }, [id, userData]);
+      }, [id, Data]);
 
     let handleNameChange = (event) => {
         setUserName(event.target.value);
@@ -60,7 +60,7 @@ function EditNotebyId() {
             let changeUsers = [...userData];
 
             for (var index = 0; index < changeUsers.length; index++){
-                if (changeUsers[index].ID == id) {
+                if (changeUsers[index].ID === id) {
                     break;
                 }
             }
