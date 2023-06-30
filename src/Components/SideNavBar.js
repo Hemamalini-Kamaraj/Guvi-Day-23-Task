@@ -19,7 +19,7 @@ function SideNavBar() {
                     <hr className="sidebar-divider my-0"></hr>
 
                         <li className="nav-item active">
-                            <Link className="nav-link" to='/dashboard'>
+                            <Link className="nav-link" to='/'>
                             <i className="fas fa-fw fa-dashboard"></i>
                             <span>Dashboard</span>
                             </Link>
@@ -59,7 +59,7 @@ function SideNavBar() {
         </div>
 
         <Routes>
-            <Route path='/dashboard' element={<Home/>}/>
+            <Route path='/' element={<Home/>}/>
             <Route path='/view-user' element={<ViewUser/>}/>
             <Route path='/create-user' element={<CreateUser/>}/>
             <Route path='/edit-user' element={<EditUser/>}/>
