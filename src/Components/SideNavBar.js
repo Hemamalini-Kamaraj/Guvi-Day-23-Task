@@ -9,7 +9,7 @@ import EditNotebyId from './EditNotebyId';
 
 function SideNavBar() {
   return (
-    <Router>
+    // <Router>
         <div>
             <div id='wrapper'>
                 <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -58,15 +58,15 @@ function SideNavBar() {
             </div>
         </div>
 
-        <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/view-user' element={<ViewUser/>}/>
-            <Route path='/create-user' element={<CreateUser/>}/>
-            <Route path='/edit-user' element={<EditUser/>}/>
-            <Route path='/delete-user' element={<DeleteUser/>}/>
-            <Route path='/edit-user/:id' element={<EditNotebyId/>}/>
-        </Routes>
-    </Router>
+        // <Routes>
+        //     <Route path='/' element={<Home/>}/>
+        //     <Route path='/view-user' element={<ViewUser/>}/>
+        //     <Route path='/create-user' element={<CreateUser/>}/>
+        //     <Route path='/edit-user' element={<EditUser/>}/>
+        //     <Route path='/delete-user' element={<DeleteUser/>}/>
+        //     <Route path='/edit-user/:id' element={<EditNotebyId/>}/>
+        // </Routes>
+    // </Router>
   )
 }
 
