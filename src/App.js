@@ -8,6 +8,17 @@ function App() {
 
    const[data,setData] = useState([])
 
+   const fetchInfo = async () => {
+    const res = await fetch('https://jsonplaceholder.typicode.com/users');
+     const data = await res.json();
+     return setData(data);
+      
+   }
+  //  console.log(data)
+   useEffect(()=>{
+    fetchInfo();
+   },[])
+
    const notes = [
     {
       id:1,
@@ -65,8 +76,8 @@ function App() {
 
    function User({data}) {
     const id = useParams().id;
-    const user = data.find(u => u.id==Number(id))
-    console.log(id)
+    const user = data.find(u => u.id===Number(id))
+    console.log(data)
     return(
       <div>
         <h2>{user.id}</h2>
@@ -76,23 +87,13 @@ function App() {
 
    function Note({notes}) {
     const id = useParams().id
+    
     const note = notes.find(n => n.id===Number(id))
     console.log(id)
     return(
       <h2>{note.content}</h2>
     )
    }
-
-   const fetchInfo = async () => {
-    const res = await fetch('https://jsonplaceholder.typicode.com/users');
-     const data = await res.json();
-     return setData(data);
-      
-   }
-  //  console.log(data)
-   useEffect(()=>{
-    fetchInfo();
-   },[])
 
   return (
     <Router>
