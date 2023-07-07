@@ -63,8 +63,8 @@ function EditNotebyId() {
                 if (changeUsers[index].ID === id) {
                     break;
                 }
-            }
-
+        }
+        
             userData[index] = userObject;
 
             alert('User details Updated.. Please click View User to view!')
