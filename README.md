@@ -1,5 +1,5 @@
 # Link
-https://6486d7988e097c000831b2df--hemamalinipricecart.netlify.app/
+https://hemamalinipricecart.netlify.app/
 
 # Getting Started with Create React App
 
